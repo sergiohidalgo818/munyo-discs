@@ -1,9 +1,9 @@
 from typing import Union
-from disc_set.disc_set import DiscSet
+from disc_handler.disc_set.disc_set import DiscSet
 import pandas as pd
 
 
-class DiscSetObtained(DiscSet):
+class DiscSetOwned(DiscSet):
     csv_path: str
     first_col: str
     second_col: str

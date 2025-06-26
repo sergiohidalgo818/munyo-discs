@@ -1,0 +1,9 @@
+{
+  "include": [
+    "munyo-discs-service",
+    "disc-handler"
+  ],
+  "extraPaths": [
+    "disc-handler/"
+  ]
+}

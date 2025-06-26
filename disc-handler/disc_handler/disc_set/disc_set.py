@@ -1,6 +1,6 @@
 import os
 from typing import Union
-from disc_set.disc_set_exceptions import DiscSetFileNotFound
+from disc_handler.disc_set.disc_set_exceptions import DiscSetFileNotFound
 import pandas as pd
 from abc import abstractmethod
 
@@ -38,7 +38,14 @@ class DiscSet:
         """
         pass
 
-    def delete_collisions(self, other_csv_path: str, updated_path: str) -> pd.DataFrame:
+    def delete_collisions(self, other_csv_path: str, updated_path: str) -> None:
+        """
+        Writes a csv with no collisions.
+
+        Args:
+            other_csv_path (str): The path to the csv file.
+            updated_path (str): The path to the updated csv file.
+        """
         merged = pd.read_csv(self.csv_path).merge(
             pd.read_csv(other_csv_path)[["artist", "disc"]],
             on=["artist", "disc"],
@@ -52,4 +59,5 @@ class DiscSet:
 
         clean_collisions.to_csv(updated_path, encoding="latin1", index=False)
 
-        return clean_collisions
+    def serialize(self) -> list[dict]:
+        return pd.read_csv(self.csv_path, encoding="latin1").to_dict(orient="records")

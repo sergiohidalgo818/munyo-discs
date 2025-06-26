@@ -1,6 +1,7 @@
 import os
 import pandas as pd
-from history.history import History
+from disc_handler.disc_set.disc_set_wished import DiscSetWished
+from disc_handler.disc_set.disc_set_owned import DiscSetOwned
 
 
 def main():
@@ -12,8 +13,9 @@ def main():
     obtained_path: str = os.path.join(data_path, obtained_csv)
     updated_path: str = os.path.join(data_path, updated_csv)
 
-    preferences_df: pd.DataFrame = History(preferences_path).from_csv_to_preference()
-    obtained_df: pd.DataFrame = History(obtained_path).from_csv_to_obtained()
+    preferences_df: pd.DataFrame = DiscSetWished(preferences_path).frame_it()
+    obtained_df: pd.DataFrame = DiscSetOwned(obtained_path).frame_it()
+    preferences_df.to_csv("ex.csv", encoding="latin1", index=False)
 
     merged = preferences_df.merge(
         obtained_df[["artist", "disc"]],

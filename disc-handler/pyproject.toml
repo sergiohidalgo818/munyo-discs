@@ -1,0 +1,17 @@
+[project]
+name = "disc-handler"
+version = "0.1.0"
+description = "Handler for Munyo disc data"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.3.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["disc_handler"]
+

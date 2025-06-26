@@ -5,7 +5,6 @@ from api.connection.service import connection_router
 
 from fastapi.middleware.cors import CORSMiddleware
 
-
 app = FastAPI()
 
 
