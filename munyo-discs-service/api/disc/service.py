@@ -1,7 +1,6 @@
 import os
 from fastapi import APIRouter, File, UploadFile
 from fastapi.responses import JSONResponse
-from api.disc.disc import Disc, DiscValoration
 from disc_handler.disc_set.disc_set_owned import DiscSetOwned
 from disc_handler.disc_set.disc_set_wished import DiscSetWished
 
@@ -53,6 +52,20 @@ async def upload_wished_cds(file: UploadFile = File(...)):
 
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=400)
+
+
+@disc_router.put("/api/delete-colissions")
+async def delete_colissions():
+    wished_file_path = os.path.abspath(os.path.join(UPLOAD_DIR, wished_cds_filename))
+    owned_file_path = os.path.abspath(os.path.join(UPLOAD_DIR, owned_cds_filename))
+
+    try:
+        DiscSetWished(wished_file_path).delete_collisions(owned_file_path, wished_file_path)
+        return {"message": "Wished CDs uploaded and saved", "path": owned_file_path}
+
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=400)
+
 
 
 @disc_router.get("/api/owned-cds")

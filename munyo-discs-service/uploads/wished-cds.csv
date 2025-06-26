@@ -80,7 +80,6 @@ stars,artist,disc
 2,Machine Girl,WLFGRL
 2,Mastodon,Remission
 2,Megadeth,Peace Sells
-2,Megadeth,Youthanasia
 2,Metallica,Master of Puppets
 2,Modest Mouse,Good News for People Who Love Bad News
 2,Mort Garson,Mother Earth's Plantasia
@@ -145,7 +144,6 @@ stars,artist,disc
 3,Cryptopsy,Whisper Supremacy
 3,Cynic,Traced in Air
 3,Dead Kennedys,Plastic Surgery Disasters
-3,Deafheaven,Sunbather
 3,Death Grips,No Love Deep Web
 3,Deftones,Around the Fur
 3,Demilich,Nespithe
@@ -171,7 +169,6 @@ stars,artist,disc
 3,Gang of Four,Entertainment!
 3,Gatillazo,Dianas Legales
 3,Gavin Bryars,The Sinking of the Titanic
-3,Godspeed You! Black Emperor,Yanqui U.X.O.
 3,Gorillaz,Plastic Beach
 3,Have a Nice Life,Deathconsciousness
 3,Heilung,Ofnir
@@ -186,7 +183,6 @@ stars,artist,disc
 3,Kanye West,My Beautiful Dark Twisted Fantasy
 3,Kase.O Jazz Magnetism,Kase.O Jazz Magnetism
 3,Kate Bush,Hounds of Love
-3,Kraftwerk,Autobahn
 3,Kreator,Pleasure to Kill
 3,La M.O.D.A.,La Primavera del Invierno
 3,La M.O.D.A.,Salvavida (De las Balas Perdidas)
@@ -202,7 +198,6 @@ stars,artist,disc
 3,Mammal Hands,Shadow Work
 3,Manolo Kabezabolo,2001: La Odisea Va Despacio
 3,Manolo Kabezabolo,La Nueva Mayoría
-3,Marvin Gaye,What's Going On
 3,Masayoshi Takanaka,Brasilian Skies
 3,Mastodon,Leviathan
 3,Melvins,(A) Senile Animal
@@ -236,7 +231,6 @@ stars,artist,disc
 3,Pestilence,Testimony of the Ancient
 3,Petra de Fenetra,Tipico Pero Cierto
 3,Phlebotomized,Immense Intense Suspense
-3,Pink Floyd,The Dark Side of the Moon
 3,Psycroptic,Divine Council
 3,Radiohead,A Moon Shaped Pool
 3,Rivers of Nihil,Where Owls Know my Name
@@ -252,7 +246,6 @@ stars,artist,disc
 3,Slayer,Show no Mercy
 3,Slayer,South of Heaven
 3,Sleep,Dopesmoker
-3,Slipknot,Slipknot
 3,Sonic Youth,Daydream Nation
 3,Sonic Youth,Goo
 3,Stan Getz & João Gilberto,Getz / Gilberto
@@ -269,7 +262,6 @@ stars,artist,disc
 3,Talk Talk,Laughing Stock
 3,The Avalanches,Since I Left You
 3,The Dillinger Escape Plan,Calculating Infinity
-3,The Exploited,Troops of Tomorrow
 3,The Garden,Haha
 3,The Garden,Kiss My Super Bowl Ring
 3,The Smile,Wall of Eyes
@@ -297,12 +289,10 @@ stars,artist,disc
 4,Arpaviejas,Ladrón de Almas
 4,Baptists,Bushcraft
 4,"Black Country, New Road",Ants From Up There
-4,Black Sabbath,Sabbath Bloody Sabbath
 4,Boris,Amplifier Worship
 4,Boris,Pink
 4,Burzum,Filosofem
 4,Califato ¾,Puerta de la Canne
-4,Carolina Durante,Cuatro Chavales
 4,Chicharrica,Quiero Romper
 4,Choking Victim,No Gods / No Managers
 4,Crystal Castles,Crystal Castles
@@ -326,7 +316,6 @@ stars,artist,disc
 4,King Gizzard and the Lizard Wizard,I'm In Your Mind Fuzz
 4,Kraftwerk,Computer World
 4,Kraftwerk,Trans Europe Express
-4,Kyuss,Welcome to Sky Valley
 4,Lightning Bolt,Wonderful Rainbow
 4,Lykathea Aflame,Elvenefris
 4,Meshuggah,"Destroy, Erase, Improve"
@@ -357,7 +346,6 @@ stars,artist,disc
 4,The Smile,A Light for Attracting Attention
 4,Tool,Fear Inoculum
 4,Triángulo de Amor Bizarro,Salve Discordia
-4,Triángulo de Amor Bizarro,Triángulo de Amor Bizarro (2020)
 4,tricot,T H E
 4,Violadores del Verso,Vivir Para Contarlo
 4,Voivod,Dimension Hatröss
@@ -366,7 +354,6 @@ stars,artist,disc
 4,William Basinski,The Disintegration Loops
 4,??? (Midori),"???????????????????? (Aratamemashite, Hajimemashite, Midori Desu)"
 5,Black Midi,Schlagenheim
-5,Discharge,"Hear Nothing, See Nothing, Say Nothing"
 5,Explosions in the Sky,The Earth is not a Dead Cold Place
 5,Gentle Giant,Octopus
 5,Gojira,From Mars To Sirius
@@ -377,8 +364,6 @@ stars,artist,disc
 5,The Caretaker,Everywhere at the End of Time 1
 5,The Flaming Lips,Yoshimi Battles the Pink Robots
 5,The Garden,Horseshit on Route 66
-5,The Prodigy,The Fat of the Land
 -1,Batushka,Panihida
--1,Extremoduro,Material Defectuoso
 -1,Extremoduro,Para Todos los Públicos
 -1,Extremoduro,"Yo, Minoría Absoluta"

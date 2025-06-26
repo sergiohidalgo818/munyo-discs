@@ -46,8 +46,8 @@ class DiscSet:
             other_csv_path (str): The path to the csv file.
             updated_path (str): The path to the updated csv file.
         """
-        merged = pd.read_csv(self.csv_path).merge(
-            pd.read_csv(other_csv_path)[["artist", "disc"]],
+        merged = pd.read_csv(self.csv_path, encoding="latin1").merge(
+            pd.read_csv(other_csv_path, encoding="latin1")[["artist", "disc"]],
             on=["artist", "disc"],
             how="left",
             indicator=True,
