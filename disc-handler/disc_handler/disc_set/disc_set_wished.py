@@ -42,6 +42,9 @@ class DiscSetWished(DiscSet):
         """
         df = pd.read_csv(self.csv_path, encoding="latin1")
 
+        if len(df.columns) > 2:
+            return df
+
         df.rename(
             columns={
                 df.columns[0]: self.first_col,  # type: ignore

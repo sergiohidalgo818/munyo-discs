@@ -4,12 +4,12 @@ import uuid
 
 @dataclass
 class Disc:
-    disc_id: uuid.UUID
-    artist_id: uuid.UUID
     name: str
+    artist_id: uuid.UUID
+    disc_id: uuid.UUID = uuid.uuid4()
 
 
 @dataclass
 class DiscValoration:
-    disc_id: uuid.UUID
     valoration: int
+    disc_id: uuid.UUID = uuid.uuid4()

@@ -6,9 +6,16 @@
         exact-active-class="text-green-400">
         Home
       </RouterLink>
+      <RouterLink to="/discs" class="hover:underline hover:text-green-400 transition" active-class="text-green-400">
+      Discs
+      </RouterLink>
       <RouterLink to="/connect" class="hover:underline hover:text-green-400 transition" active-class="text-green-400">
         Connect
       </RouterLink>
+      <RouterLink to="/spotify" class="hover:underline hover:text-green-400 transition" active-class="text-green-400">
+        Spotify
+      </RouterLink>
+
     </div>
   </nav>
 </template>

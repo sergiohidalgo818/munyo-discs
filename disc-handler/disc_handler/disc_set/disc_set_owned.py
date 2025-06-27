@@ -18,6 +18,12 @@ class DiscSetOwned(DiscSet):
         Returns:
             pd.DataFrame: The dataframe with the preferences. The structure is artist, disc.
         """
+
+        df = pd.read_csv(self.csv_path, encoding="latin1")
+
+        if len(df.columns) > 1:
+            return df
+
         df = pd.read_csv(
             self.csv_path, encoding="latin1", header=None, names=[self.first_col]
         )

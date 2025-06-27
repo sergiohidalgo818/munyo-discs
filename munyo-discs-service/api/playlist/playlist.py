@@ -3,6 +3,6 @@ import uuid
 
 
 @dataclass
-class Artist:
+class Playlist:
     name: str
-    artist_id: uuid.UUID = uuid.uuid4()
+    playlist_id: uuid.UUID = uuid.uuid4()
