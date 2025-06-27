@@ -43,7 +43,7 @@ async def access_spotify(client_id: str, client_secret: str) -> Spotify:
 
 
 @spotify_router.get("/spotify/get-likes")
-async def get_likes() -> Union[list[Song], JSONResponse]:
+async def get_likes() -> list[Song]:
     auth_path = os.path.abspath(os.path.join(ACCESS_DIR, token_filename))
     if not os.path.exists(auth_path):
         return JSONResponse(content=False)
@@ -96,7 +96,7 @@ async def get_likes() -> Union[list[Song], JSONResponse]:
 
 
 @spotify_router.get("/spotify/get-playlist")
-async def get_playlist(playlist_id: str) -> Union[list[Song], JSONResponse]:
+async def get_playlist(playlist_id: str) -> list[Song]:
     auth_path = os.path.abspath(os.path.join(ACCESS_DIR, token_filename))
     if not os.path.exists(auth_path):
         return JSONResponse(content=False)
@@ -160,7 +160,7 @@ async def get_playlist(playlist_id: str) -> Union[list[Song], JSONResponse]:
 
 
 @spotify_router.get("/spotify/get-playlists")
-async def get_playlists() -> Union[list[Playlist], JSONResponse]:
+async def get_playlists() -> list[Playlist]:
     auth_path = os.path.abspath(os.path.join(ACCESS_DIR, token_filename))
     if not os.path.exists(auth_path):
         return JSONResponse(content=False)
@@ -214,7 +214,7 @@ async def get_playlists() -> Union[list[Playlist], JSONResponse]:
 
 
 @spotify_router.get("/spotify/get-artists")
-async def get_followed_artists() -> Union[list[Artist], JSONResponse]:
+async def get_followed_artists() -> list[Artist]:
     auth_path = os.path.abspath(os.path.join(ACCESS_DIR, token_filename))
     if not os.path.exists(auth_path):
         return JSONResponse(content=False)
