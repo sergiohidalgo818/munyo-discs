@@ -1,9 +1,9 @@
 <script setup>
-import Home from '../components/Home.vue'
+import Spotify from '../components/Spotify.vue'
 </script>
 
 <template>
   <main>
-    <Home />
+    <Spotify />
   </main>
 </template>
