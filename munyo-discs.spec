@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['munyo-discs-service/main.py'],
+    ['munyo-discs-service/munyo_discs_service/main.py'],
     pathex=['disc-handler'],
     binaries=[],
     datas=[('munyo-discs-cli/dist', 'dist')],

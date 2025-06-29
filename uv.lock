@@ -324,18 +324,19 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "disc-handler", editable = "disc-handler" },
-    { name = "munyo-discs-service", virtual = "munyo-discs-service" },
+    { name = "munyo-discs-service", editable = "munyo-discs-service" },
 ]
 
 [[package]]
 name = "munyo-discs-service"
 version = "0.1.0"
-source = { virtual = "munyo-discs-service" }
+source = { editable = "munyo-discs-service" }
 dependencies = [
     { name = "disc-handler" },
     { name = "fastapi", extra = ["standard"] },
     { name = "pandas" },
     { name = "spotipy" },
+    { name = "starlette" },
 ]
 
 [package.metadata]
@@ -344,6 +345,7 @@ requires-dist = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.14" },
     { name = "pandas", specifier = ">=2.3.0" },
     { name = "spotipy", specifier = ">=2.25.1" },
+    { name = "starlette", specifier = ">=0.46.2" },
 ]
 
 [[package]]

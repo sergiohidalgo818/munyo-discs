@@ -9,7 +9,16 @@ dependencies = [
     "fastapi[standard]>=0.115.14",
     "pandas>=2.3.0",
     "spotipy>=2.25.1",
+    "starlette>=0.46.2",
 ]
 
 [tool.uv.sources]
 disc-handler = { workspace = true }
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["munyo_discs_service"]
+
