@@ -1,4 +1,5 @@
 cd munyo-discs-cli
+npm install
 npm run build
 cd ..
 pyinstaller munyo-discs-service/main.py \
