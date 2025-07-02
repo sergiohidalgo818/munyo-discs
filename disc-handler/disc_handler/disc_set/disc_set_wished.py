@@ -1,6 +1,7 @@
 import os
 from typing import Union
 from disc_handler.disc_set.disc_set import DiscSet
+from disc_handler.disc_set.disc_set_exceptions import DiscSetRepeatedDisc
 from disc_handler.disc_set.disc_set_exceptions import DiscSetFileNotFound
 import pandas as pd
 
@@ -59,7 +60,7 @@ class DiscSetWished(DiscSet):
         for _, row in df.iterrows():
             if str(row[self.first_col]) != "nan":
                 if "(en blanco)" == str(row[self.first_col]):
-                    row[self.first_col] = -1
+                    row[self.first_col] = 0
                 last_star = row[self.first_col]  # type: ignore
             else:
                 row[self.first_col] = last_star
@@ -67,7 +68,7 @@ class DiscSetWished(DiscSet):
         for _, row in df.iterrows():
             if row[self.first_col] is not None:
                 if not str(row[self.first_col]).isnumeric():
-                    row[self.first_col] = -1
+                    row[self.first_col] = 0
                     last_star = row[self.first_col]  # type: ignore
 
             else:
@@ -83,3 +84,25 @@ class DiscSetWished(DiscSet):
         df[self.third_col] = discs
 
         return df
+
+    def modify_disc(
+        self, artist: str, disc: str, new_artist: str, new_disc: str, stars: int = 0
+    ) -> None:
+        df = pd.read_csv(self.csv_path, encoding="latin1")
+        df.loc[
+            (df["artist"] == artist) & (df["disc"] == disc), ["disc", "artist", "stars"]
+        ] = [
+            new_disc,
+            new_artist,
+            stars,
+        ]
+        df.to_csv(self.csv_path, encoding="latin1", index=False)
+
+    def add_disc(self, artist: str, disc: str, stars: int = 0) -> None:
+        df = pd.read_csv(self.csv_path, encoding="latin1")
+        if df[(df["artist"] == artist) & (df["disc"] == disc)].empty:
+            new_row = pd.DataFrame([{"artist": artist, "disc": disc, "stars": stars}])
+            df = pd.concat([df, new_row], ignore_index=True)
+        else:
+            raise DiscSetRepeatedDisc(f"Disc {artist} - {disc} already exists")
+        df.to_csv(self.csv_path, encoding="latin1", index=False)

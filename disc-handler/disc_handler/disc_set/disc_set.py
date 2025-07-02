@@ -1,6 +1,11 @@
 import os
 from typing import Union
-from disc_handler.disc_set.disc_set_exceptions import DiscSetFileNotFound
+
+from disc_handler.disc_set.disc_set_exceptions import (
+    DiscSetFileNotFound,
+    DiscSetRepeatedDisc,
+    DiscSetNotSuchDisc,
+)
 import pandas as pd
 from abc import abstractmethod
 
@@ -46,6 +51,10 @@ class DiscSet:
             other_csv_path (str): The path to the csv file.
             updated_path (str): The path to the updated csv file.
         """
+        if not os.path.exists(other_csv_path) or not os.path.exists(self.csv_path):
+            raise DiscSetFileNotFound(
+                f"File {os.path.abspath(other_csv_path).split('/')[-1]} not found"
+            )
         merged = pd.read_csv(self.csv_path, encoding="latin1").merge(
             pd.read_csv(other_csv_path, encoding="latin1")[["artist", "disc"]],
             on=["artist", "disc"],
@@ -59,5 +68,40 @@ class DiscSet:
 
         clean_collisions.to_csv(updated_path, encoding="latin1", index=False)
 
+    def remove_disc(self, artist: str, disc: str) -> None:
+        df = pd.read_csv(self.csv_path, encoding="latin1")
+        if df[(df["artist"] == artist) & (df["disc"] == disc)].empty:
+            raise DiscSetNotSuchDisc(f"Disc {artist} - {disc} not found")
+        df = df[(df["artist"] != artist) | (df["disc"] != disc)]
+        df.to_csv(self.csv_path, encoding="latin1", index=False)
+
+    def modify_disc(
+        self, artist: str, disc: str, new_artist: str, new_disc: str, stars: int = 0
+    ) -> None:
+        df = pd.read_csv(self.csv_path, encoding="latin1")
+
+        if df[(df["artist"] == artist) & (df["disc"] == disc)].empty:
+            self.add_disc(artist, disc, stars)
+
+        else:
+            df.loc[
+                (df["artist"] == artist) & (df["disc"] == disc), ["artist", "disc"]
+            ] = (
+                new_artist,
+                new_disc,
+            )
+        df.to_csv(self.csv_path, encoding="latin1", index=False)
+
+    def add_disc(self, artist: str, disc: str, stars: int = 0) -> None:
+        df = pd.read_csv(self.csv_path, encoding="latin1")
+        if df[(df["artist"] == artist) & (df["disc"] == disc)].empty:
+            new_row = pd.DataFrame([{"artist": artist, "disc": disc}])
+            df = pd.concat([df, new_row], ignore_index=True)
+        else:
+            raise DiscSetRepeatedDisc(f"Disc {artist} - {disc} already exists")
+        df.to_csv(self.csv_path, encoding="latin1", index=False)
+
     def serialize(self) -> list[dict]:
-        return pd.read_csv(self.csv_path, encoding="latin1").to_dict(orient="records")
+        df = pd.read_csv(self.csv_path, encoding="latin1")
+        df = df.where(pd.notnull(df), None).to_dict(orient="records")
+        return df
